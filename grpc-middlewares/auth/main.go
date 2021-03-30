@@ -10,8 +10,8 @@ import (
 	"log"
 	"net"
 
-	"github.com/dojinkimm/go-grpc-example/data"
-	userpb "github.com/dojinkimm/go-grpc-example/protos/v1/user"
+	"github.com/kenshin579/analyzing-go-grpc-example/data"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/user"
 )
 
 const portNumber = "9000"

@@ -5,10 +5,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/dojinkimm/go-grpc-example/data"
-	userpb "github.com/dojinkimm/go-grpc-example/protos/v1/user"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
+	"github.com/kenshin579/analyzing-go-grpc-example/data"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/user"
 	"google.golang.org/grpc"
 )
 

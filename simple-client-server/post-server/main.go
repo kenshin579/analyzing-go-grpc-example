@@ -7,10 +7,10 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/dojinkimm/go-grpc-example/data"
-	postpb "github.com/dojinkimm/go-grpc-example/protos/v1/post"
-	userpb "github.com/dojinkimm/go-grpc-example/protos/v1/user"
-	client "github.com/dojinkimm/go-grpc-example/simple-client-server"
+	"github.com/kenshin579/analyzing-go-grpc-example/data"
+	postpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/post"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/user"
+	client "github.com/kenshin579/analyzing-go-grpc-example/simple-client-server"
 )
 
 const portNumber = "9001"
