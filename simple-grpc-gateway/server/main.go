@@ -7,8 +7,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/kenshin579/analyzing-go-grpc-example/data"
-	userpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v2/user"
+	"github.com/kenshin579/analyzing-go-grpc-example/domain/model"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v2/user"
 )
 
 const portNumber = "9001"
@@ -22,7 +22,7 @@ func (s *userServer) GetUser(ctx context.Context, req *userpb.GetUserRequest) (*
 	userID := req.UserId
 
 	var userMessage *userpb.UserMessage
-	for _, u := range data.UsersV2 {
+	for _, u := range model.UsersV2 {
 		if u.UserId != userID {
 			continue
 		}
@@ -37,8 +37,8 @@ func (s *userServer) GetUser(ctx context.Context, req *userpb.GetUserRequest) (*
 
 // ListUsers returns all user messages
 func (s *userServer) ListUsers(ctx context.Context, req *userpb.ListUsersRequest) (*userpb.ListUsersResponse, error) {
-	userMessages := make([]*userpb.UserMessage, len(data.Users))
-	for i, u := range data.UsersV2 {
+	userMessages := make([]*userpb.UserMessage, len(model.Users))
+	for i, u := range model.UsersV2 {
 		userMessages[i] = u
 	}
 

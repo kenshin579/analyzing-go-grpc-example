@@ -2,14 +2,14 @@ package main
 
 import (
 	"context"
+	"github.com/kenshin579/analyzing-go-grpc-example/domain/model"
 	"log"
 	"net"
 
 	"google.golang.org/grpc"
 
-	"github.com/kenshin579/analyzing-go-grpc-example/data"
-	postpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/post"
-	userpb "github.com/kenshin579/analyzing-go-grpc-example/protos/v1/user"
+	postpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v1/post"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v1/user"
 	client "github.com/kenshin579/analyzing-go-grpc-example/simple-client-server"
 )
 
@@ -31,7 +31,7 @@ func (s *postServer) ListPostsByUserId(ctx context.Context, req *postpb.ListPost
 	}
 
 	var postMessages []*postpb.PostMessage
-	for _, up := range data.UserPosts {
+	for _, up := range model.UserPosts {
 		if up.UserID != userID {
 			continue
 		}
@@ -52,7 +52,7 @@ func (s *postServer) ListPostsByUserId(ctx context.Context, req *postpb.ListPost
 // ListPosts returns all post messages
 func (s *postServer) ListPosts(ctx context.Context, req *postpb.ListPostsRequest) (*postpb.ListPostsResponse, error) {
 	var postMessages []*postpb.PostMessage
-	for _, up := range data.UserPosts {
+	for _, up := range model.UserPosts {
 		resp, err := s.userCli.GetUser(ctx, &userpb.GetUserRequest{UserId: up.UserID})
 		if err != nil {
 			return nil, err

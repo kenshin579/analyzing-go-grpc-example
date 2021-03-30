@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package v2.user;
 
-option go_package = "github.com/kenshin579/analyzing-go-grpc-example/protos/v2/user";
+option go_package = "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v2/user";
 
 import "google/api/annotations.proto";
 
