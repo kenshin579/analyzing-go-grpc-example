@@ -53,8 +53,9 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
+	//user 서비스를 gRPC server에 등록하는 부분
 	grpcServer := grpc.NewServer()
-	userpb.RegisterUserServer(grpcServer, &userServer{})
+	userpb.RegisterUserServer(grpcServer, &userServer{}) //userServer를 grpc에 등록한다
 
 	log.Printf("start gRPC server on %s port", portNumber)
 	if err := grpcServer.Serve(lis); err != nil {
