@@ -1,7 +1,7 @@
 # Makefile
 
-.PHONY: generate-user-proto
-generate-user-proto:
+.PHONY: generate-user-v1-proto
+generate-user-v1-proto:
 	protoc -I=. \
 	    --go_out . \
 	    --go_opt paths=source_relative \
