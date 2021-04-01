@@ -14,7 +14,7 @@ var (
 )
 
 func GetUserClient(serviceHost string) userpb.UserClient {
-	once.Do(func() {
+	once.Do(func() { //한번만 실행시켜준다
 		conn, _ := grpc.Dial(serviceHost,
 			grpc.WithInsecure(),
 			grpc.WithBlock(),

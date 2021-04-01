@@ -11,6 +11,7 @@ import (
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
+// Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
 // PostClient is the client API for Post service.
@@ -76,7 +77,7 @@ type UnsafePostServer interface {
 }
 
 func RegisterPostServer(s grpc.ServiceRegistrar, srv PostServer) {
-	s.RegisterService(&_Post_serviceDesc, srv)
+	s.RegisterService(&Post_ServiceDesc, srv)
 }
 
 func _Post_ListPostsByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -115,7 +116,10 @@ func _Post_ListPosts_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Post_serviceDesc = grpc.ServiceDesc{
+// Post_ServiceDesc is the grpc.ServiceDesc for Post service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Post_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "v1.post.Post",
 	HandlerType: (*PostServer)(nil),
 	Methods: []grpc.MethodDesc{
@@ -129,5 +133,5 @@ var _Post_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "protos/v1/post/post.proto",
+	Metadata: "domain/protos/v1/post/post.proto",
 }

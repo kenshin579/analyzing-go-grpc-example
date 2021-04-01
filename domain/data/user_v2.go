@@ -1,10 +1,10 @@
-package model
+package data
 
 import (
-	userpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v1/user"
+	userpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v2/user"
 )
 
-var Users = []*userpb.UserMessage{
+var UsersV2 = []*userpb.UserMessage{
 	{
 		UserId:      "1",
 		Name:        "Henry",

@@ -10,7 +10,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/kenshin579/analyzing-go-grpc-example/domain/model"
+	"github.com/kenshin579/analyzing-go-grpc-example/domain/data"
 	userpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v1/user"
 )
 
@@ -25,7 +25,7 @@ func (s *userServer) GetUser(ctx context.Context, req *userpb.GetUserRequest) (*
 	userID := req.UserId
 
 	var userMessage *userpb.UserMessage
-	for _, u := range model.Users {
+	for _, u := range data.Users {
 		if u.UserId != userID {
 			continue
 		}
@@ -40,8 +40,8 @@ func (s *userServer) GetUser(ctx context.Context, req *userpb.GetUserRequest) (*
 
 // ListUsers returns all user messages
 func (s *userServer) ListUsers(ctx context.Context, req *userpb.ListUsersRequest) (*userpb.ListUsersResponse, error) {
-	userMessages := make([]*userpb.UserMessage, len(model.Users))
-	for i, u := range model.Users {
+	userMessages := make([]*userpb.UserMessage, len(data.Users))
+	for i, u := range data.Users {
 		userMessages[i] = u
 	}
 

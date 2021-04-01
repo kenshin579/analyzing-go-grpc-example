@@ -1,4 +1,4 @@
-package model
+package data
 
 import (
 	postpb "github.com/kenshin579/analyzing-go-grpc-example/domain/protos/v1/post"
